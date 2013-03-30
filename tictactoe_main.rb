@@ -36,8 +36,7 @@ loop do # jogo
 	# verifica se deu empate
 	if tryLeft.empty?
 		puts "Empate!"
-		gameOver
-		break
+		gameOver = true
 	end
 		
 	unless gameOver
