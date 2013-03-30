@@ -1,3 +1,5 @@
+# author https://github.com/Teruonak
+
 # configurações do jogo
 gameName = "Jogo da Velha"
 mGame = [1,2,3,4,5,6,7,8,9]
