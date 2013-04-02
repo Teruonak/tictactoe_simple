@@ -2,16 +2,16 @@
 
 # configurações do jogo
 gameName = "Jogo da Velha"
-mGame = [1,2,3,4,5,6,7,8,9]
-tryLeft = [1,2,3,4,5,6,7,8,9]
 winning_rows = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
 marker = [:C, :X].cycle
 player1 = marker.next
 player2 = marker.next
+mGame = [1,2,3,4,5,6,7,8,9]
+tryLeft = [1,2,3,4,5,6,7,8,9]
 mPlayerGame = {player1 => [], player2 => []}
+gameOver = false
 
-loop do # jogo
-	gameOver ||= false
+loop do # jogo	
 	player = marker.next
 
 	# desenhar o jogo
@@ -53,6 +53,17 @@ loop do # jogo
 		mPlayerGame[player] << try
 	else
 		puts "Fim de Jogo."
-		break
+		puts
+		print "Melhor de três? (s/n): "
+		answer = gets.chomp.downcase until ["s","n"].include? answer
+		if answer.eql?("s")
+			# setup again
+			mGame = [1,2,3,4,5,6,7,8,9]
+			tryLeft = [1,2,3,4,5,6,7,8,9]
+			mPlayerGame = {player1 => [], player2 => []}
+			gameOver = false
+		elsif answer.eql?("n")
+			break
+		end
 	end
 end
