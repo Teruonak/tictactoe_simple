@@ -34,15 +34,14 @@ loop do # jogo
 	end
 
 	# verifica se deu empate
-	if tryLeft.empty?
+	if tryLeft.empty? && (gameOver == false)
 		puts "Empate!"
 		gameOver = true
 	end
 		
 	unless gameOver
 	# 	jogador escolhe campo
-		puts player
-		print "Escolha uma tentativa: "
+		print "Jogador #{player}, scolha uma tentativa: "
 			
 		# verifica se escolheu um número de 1 a 9
 		try = gets.chomp.to_i until tryLeft.include? try
